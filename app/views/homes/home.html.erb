@@ -1,2 +1,62 @@
-<h1>Homes#home</h1>
-<p>Find me in app/views/homes/home.html.erb</p>
+<div class="container home">
+  <div class="row">
+    <div class="col-md-5 user-container">
+      <div class="user__title">
+        <h3>User Info</h3>
+      </div>
+      <div class="user__info">
+        <%= image_tag('no_image.png', width: "20%") %>      
+        <table class="table">
+          <tr class="border-top">
+            <td>name</td>
+            <td><%= current_user.name%></td>
+          </tr>
+          <tr class="">
+            <td>introduction</td>
+            <td></td>
+          </tr>
+        </table>
+        <div class="user-setting__link">
+          <a href="#" class="btn btn-outline-secondary btn-block">
+            <i class="fas fa-user-cog"></i>
+          </a>
+        </div>
+      </div>
+      <div class="book-form">
+        <h3>New Book</h3>
+        <%= form_with url: "#" do |form|%>
+          <div class="form-group">
+            <%= form.label :Title%>
+            <%= form.text_field :title, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= form.label :Opinion%>
+            <%= form.text_area :title, class: "form-control"%>          
+          </div>
+          <div class="form-group">
+            <%= form.submit 'Create Book', class: "btn btn-success"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-7 books-contaier">
+      <div class="books__title">
+        <h3>Books</h3>
+      </div>
+      <div class="books__body">
+        <table class="table">
+          <tr>
+            <td>Title</td>
+            <td>Opinion</td>
+          </tr>
+          <% current_user.books.each do |book|%>
+            <tr>
+              <td><%= book.title%></td>
+              <td><%= book.body%></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
