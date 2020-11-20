@@ -6,17 +6,15 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def new
-  end
-
   def create
     @book = Book.new(book_prams)
+    @books = Book.all
     if @book.save
       flash['success'] = 'Book is created'
+      redirect_to @book
     else
-      flash['failed'] = 'Book is not created'
+      render action: :index
     end
-    redirect_to homes_home_path
   end
 
   def show

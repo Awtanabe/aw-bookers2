@@ -26,7 +26,7 @@
   </div>
   <div class="book-form">
     <h3>New Book</h3>
-    <%= form_with model: book do |form|%>
+    <%= form_with model: book, local: true do |form|%>
       <div class="form-group">
         <%= form.label :Title%>
         <%= form.text_field :title, class: "form-control"%>
