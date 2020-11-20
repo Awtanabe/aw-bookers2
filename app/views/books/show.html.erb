@@ -1,2 +1,27 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="container home">
+  <div class="row">
+    <%= render 'shared/user-side-bar', book: @book%>
+    <div class="col-md-7 books-contaier">
+      <div class="books__title">
+        <h3>Book Detail</h3>
+      </div>
+      <div class="books__body">
+        <table class="table">
+          <tr>
+            <td>
+              <%= attachment_image_tag @book.user, :image, width: "40", height: "40" %>
+              <br>
+              <%= link_to user_path(@book.user) do %> <%= @book.user.name%> <%end%>
+            </td>
+            <td><%= link_to book_path(@book) do %> <%= @book.title %><%end%></td>
+            <td><%= @book.body%></td>
+            <% if @book.user.id == current_user.id %>
+              <td><%= link_to edit_book_path(@book),class: "btn btn-sm btn-success" do %>Edit<%end%></td>
+              <td><%= link_to book_path(@book),class: "btn btn-sm btn-danger", method: :delete, data: {confirm: '本当に消しますか？'} do %>Delete<%end%></td>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
