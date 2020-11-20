@@ -26,10 +26,10 @@
           <%end%>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
-          <i class="fas fa-sign-in-alt"></i>
-            Log Out
-          </a>
+          <%= link_to destroy_user_session_path, class: "nav-link text-white", method: :delete do %>
+            <i class="fas fa-book-open"></i>
+              Log Out
+          <%end%>
         </li>
       <% else %>
         <li class="nav-item">
@@ -39,10 +39,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
-          <i class="fas fa-user-plus"></i>
-            Log In
-          </a>
+          <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+            <i class="fas fa-book-open"></i>
+              sign up
+          <%end%>        
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+            <i class="fas fa-book-open"></i>
+              Log In
+          <%end%>        
         </li>
       <% end %>
     </ul>
