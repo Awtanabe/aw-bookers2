@@ -1,8 +1,8 @@
 require'rails_helper'
 RSpec.describe BooksController, type: :request do
   before do
-    @user = User.create(name: "user1", email: "email@aa.aa", password: 'password')
-    @book = Book.create(title: 'title', body: 'body',user_id: @user.id)
+    @user = FactoryBot.create(:user)
+    @book = FactoryBot.create(:book, user_id: @user.id)
     sign_in @user
   end
 
