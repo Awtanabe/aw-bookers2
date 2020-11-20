@@ -33,10 +33,10 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
+          <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
             <i class="fas fa-link"></i>
-            About
-          </a>
+              About
+          <%end%>        
         </li>
         <li class="nav-item">
           <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
