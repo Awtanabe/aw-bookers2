@@ -1,2 +1,26 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container home">
+  <div class="row">
+    <%= render 'shared/user-side-bar', book: @book%>
+    <div class="col-md-7 books-contaier">
+      <div class="books__title">
+        <h3>Users</h3>
+      </div>
+      <div class="books__body">
+        <table class="table">
+          <tr>
+            <td>Image</td>
+            <td>Name</td>
+            <td></td>
+          </tr>
+          <% @users.each do |user|%>
+            <tr>
+              <td><%= attachment_image_tag user, :image, width: "40", height: "40" %></td>
+              <td><%= user.name%></td>
+              <td><%= link_to user_path(user) do %> Show<% end %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

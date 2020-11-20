@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %w[show edit update]
 
   def index
+    @users = User.all
   end
 
   def new
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @book = Book.new
   end
 
   def edit
