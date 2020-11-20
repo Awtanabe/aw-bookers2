@@ -4,5 +4,6 @@ class HomesController < ApplicationController
   end
 
   def home
+    @book = Book.new
   end
 end
