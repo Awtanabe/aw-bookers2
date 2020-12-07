@@ -20,8 +20,8 @@ jobs:
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd aw-bookers2 &&
         git pull origin master &&
-        bundle install &&
-        bundle exec rails assets:precompile RAILS_ENV=production &&
-        bundle exec rails db:migrate RAILS_ENV=production &&
+        ~/.rbenv/shims/bundle install &&
+        ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
+        ~/.rbenv/shims/bundle exec rails db:migrate RAILS_ENV=production &&
         kill $(cat tmp/pids/puma.pid) &&
-        rails s -e production'
+        ~/.rbenv/shims/rails s -e production'
